@@ -1,10 +1,13 @@
 "use script";
 
-
 let height = parseInt(prompt("Indtast din højde i centimeter:"));
 
-
 let weight = parseInt(prompt("Indtast din vægt i kilogram:"));
+
+
+if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+    alert("Indtast et gyldigt positivt tal for højde og vægt");
+} else {
 
     let bmi = weight / ((height / 100) ** 2);
 
@@ -21,8 +24,9 @@ let weight = parseInt(prompt("Indtast din vægt i kilogram:"));
         category = "Moderat Overvægtig";
     } else if (bmi >= 35.0 && bmi <= 39.9) {
         category = "Svært Overvægtig";
-    } else if (bmi >= 40){
+    } else {
         category = "Sygeligt Overvægtig";
     }
 
-    alert(`Your BMI is ${bmi.toFixed(2)}\nKategori: ${category}`); // "\n" laver et linjeskift
+    alert(`Din BMI er ${bmi.toFixed(2)}\nKategori: ${category}`); // "\n" laver et linjeskift - "toFixed(2)" korter resultatet ned til 2 decimaler
+}
